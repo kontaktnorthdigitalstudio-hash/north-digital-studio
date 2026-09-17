@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>NOIR BARBER — Premium Barberare</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: "DM Sans", sans-serif;
+            background: #0b0b0b;
+            color: #f4f1eb;
+            line-height: 1.6;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        .container {
+            width: min(1180px, 90%);
+            margin: auto;
+        }
+
+        /* NAVBAR */
+
+        nav {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 28px 0;
+            z-index: 10;
+        }
+
+        .nav-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-weight: 700;
+            font-size: 1.1rem;
+            letter-spacing: 0.08em;
+        }
+
+        .logo span {
+            color: #a89470;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 32px;
+            font-size: 0.9rem;
+            color: #aaa;
+        }
+
+        .nav-links a:hover {
+            color: white;
+        }
+
+        .nav-button {
+            border: 1px solid #a89470;
+            padding: 11px 20px;
+            border-radius: 30px;
+            font-size: 0.85rem;
+            color: #e8dfd0;
+        }
+
+        /* HERO */
+
+        .hero {
+            min-height: 760px;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+            background:
+                linear-gradient(90deg, rgba(11,11,11,0.98) 0%, rgba(11,11,11,0.82) 48%, rgba(11,11,11,0.3) 100%),
+                radial-gradient(circle at 75% 45%, #514b43 0%, #24211e 25%, #0b0b0b 65%);
+        }
+
+        .hero-content {
+            max-width: 700px;
+            padding-top: 60px;
+        }
+
+        .eyebrow {
+            color: #a89470;
+            text-transform: uppercase;
+            letter-spacing: 0.25em;
+            font-size: 0.72rem;
+            margin-bottom: 24px;
+        }
+
+        h1 {
+            font-family: "Playfair Display", serif;
+            font-size: clamp(4rem, 8vw, 7.5rem);
+            line-height: 0.92;
+            font-weight: 600;
+            letter-spacing: -0.05em;
+        }
+
+        h1 em {
+            color: #a89470;
+            font-style: normal;
+        }
+
+        .hero-text {
+            max-width: 500px;
+            margin-top: 30px;
+            color: #aaa;
+            font-size: 1.05rem;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 15px;
+            margin-top: 36px;
+        }
+
+        .button {
+            padding: 15px 25px;
+            border-radius: 30px;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        .button-primary {
+            background: #a89470;
+            color: #111;
+        }
+
+        .button-secondary {
+            border: 1px solid #444;
+            color: #ddd;
+        }
+
+        /* INTRO */
+
+        .intro {
+            padding: 120px 0;
+            text-align: center;
+        }
+
+        .intro h2 {
+            font-family: "Playfair Display", serif;
+            font-size: clamp(2.5rem, 5vw, 4.5rem);
+            max-width: 850px;
+            margin: auto;
+            line-height: 1.05;
+        }
+
+        .intro p {
+            max-width: 620px;
+            margin: 28px auto 0;
+            color: #999;
+        }
+
+        /* SERVICES */
+
+        .section {
+            padding: 100px 0;
+        }
+
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: end;
+            margin-bottom: 45px;
+        }
+
+        .section-title {
+            font-family: "Playfair Display", serif;
+            font-size: 3rem;
+        }
+
+        .section-number {
+            color: #a89470;
+            font-size: 0.75rem;
+            letter-spacing: 0.2em;
+        }
+
+        .services {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1px;
+            background: #292929;
+        }
+
+        .service {
+            background: #111;
+            padding: 40px;
+        }
+
+        .service h3 {
+            font-size: 1.4rem;
+            margin-bottom: 12px;
+        }
+
+        .service p {
+            color: #888;
+            font-size: 0.9rem;
+        }
+
+        .price {
+            margin-top: 30px;
+            color: #a89470;
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
+
+        /* ABOUT */
+
+        .about {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+        }
+
+        .about-image {
+            min-height: 560px;
+            background:
+                linear-gradient(145deg, #554e45, #191816 55%, #0b0b0b);
+            position: relative;
+        }
+
+        .about-image::after {
+            content: "NOIR";
+            position: absolute;
+            bottom: 35px;
+            left: 35px;
+            font-family: "Playfair Display", serif;
+            font-size: 4rem;
+            color: rgba(255,255,255,0.12);
+        }
+
+        .about-text p {
+            color: #999;
+            margin-top: 25px;
+        }
+
+        /* BOOKING */
+
+        .booking {
+            background: #141311;
+            padding: 90px;
+            text-align: center;
+        }
+
+        .booking h2 {
+            font-family: "Playfair Display", serif;
+            font-size: clamp(2.5rem, 5vw, 4rem);
+        }
+
+        .booking p {
+            color: #999;
+            margin: 20px auto 30px;
+            max-width: 550px;
+        }
+
+        /* FOOTER */
+
+        footer {
+            border-top: 1px solid #252525;
+            padding: 35px 0;
+            color: #777;
+            font-size: 0.8rem;
+        }
+
+        .footer-inner {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        /* MOBILE */
+
+        @media (max-width: 800px) {
+
+            .nav-links {
+                display: none;
+            }
+
+            .hero {
+                min-height: 680px;
+            }
+
+            .services,
+            .about {
+                grid-template-columns: 1fr;
+            }
+
+            .about-image {
+                min-height: 400px;
+            }
+
+            .booking {
+                padding: 60px 25px;
+            }
+
+            .footer-inner {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .section-header {
+                display: block;
+            }
+
+            .section-number {
+                display: block;
+                margin-bottom: 10px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav>
+        <div class="container nav-inner">
+
+            <a href="index.html" class="logo">
+                NOIR<span>.</span>
+            </a>
+
+            <div class="nav-links">
+                <a href="#services">Tjänster</a>
+                <a href="#about">Om oss</a>
+                <a href="#booking">Boka</a>
+            </div>
+
+            <a href="#booking" class="nav-button">
+                Boka tid
+            </a>
+
+        </div>
+    </nav>
+
+
+    <section class="hero">
+
+        <div class="container">
+
+            <div class="hero-content">
+
+                <div class="eyebrow">
+                    Premium Barber Studio
+                </div>
+
+                <h1>
+                    Sharp.<br>
+                    <em>Timeless.</em><br>
+                    You.
+                </h1>
+
+                <p class="hero-text">
+                    En modern barberupplevelse för dig som bryr dig om detaljerna.
+                    Klassiska tekniker möter modern stil.
+                </p>
+
+                <div class="hero-buttons">
+                    <a href="#booking" class="button button-primary">
+                        Boka tid
+                    </a>
+
+                    <a href="#services" class="button button-secondary">
+                        Våra tjänster
+                    </a>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <section class="intro">
+
+        <div class="container">
+
+            <div class="eyebrow">
+                Mer än en klippning
+            </div>
+
+            <h2>
+                Stil sitter inte bara i håret.
+                <br>
+                Den sitter i <em>detaljerna.</em>
+            </h2>
+
+            <p>
+                På NOIR handlar varje besök om mer än en ny frisyr.
+                Det handlar om precision, personlig service och känslan
+                av att lämna stolen lite skarpare än när du kom.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <section class="section" id="services">
+
+        <div class="container">
+
+            <div class="section-header">
+
+                <div>
+                    <div class="section-number">01 — TJÄNSTER</div>
+                    <h2 class="section-title">Välj din stil.</h2>
+                </div>
+
+            </div>
+
+
+            <div class="services">
+
+                <div class="service">
+                    <h3>Classic Cut</h3>
+
+                    <p>
+                        Klassisk klippning med sax och maskin,
+                        anpassad efter din stil.
+                    </p>
+
+                    <div class="price">
+                        450 kr
+                    </div>
+                </div>
+
+
+                <div class="service">
+                    <h3>Skin Fade</h3>
+
+                    <p>
+                        En ren och skarp fade med noggrann
+                        övergång och finish.
+                    </p>
+
+                    <div class="price">
+                        500 kr
+                    </div>
+                </div>
+
+
+                <div class="service">
+                    <h3>Beard Trim</h3>
+
+                    <p>
+                        Formning och trimning av skägg
+                        med varm handduk och finish.
+                    </p>
+
+                    <div class="price">
+                        300 kr
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <section class="section" id="about">
+
+        <div class="container about">
+
+            <div class="about-image"></div>
+
+            <div class="about-text">
+
+                <div class="section-number">
+                    02 — OM NOIR
+                </div>
+
+                <h2 class="section-title">
+                    Tradition.
+                    <br>
+                    Modern känsla.
+                </h2>
+
+                <p>
+                    NOIR BARBER är en modern barber studio med fokus
+                    på personlig stil och hantverk.
+                </p>
+
+                <p>
+                    Varje behandling börjar med att förstå vad du vill
+                    ha och avslutas först när detaljerna sitter.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <section class="section" id="booking">
+
+        <div class="container">
+
+            <div class="booking">
+
+                <div class="eyebrow">
+                    Nästa steg
+                </div>
+
+                <h2>
+                    Redo för en skarpare look?
+                </h2>
+
+                <p>
+                    Boka din tid hos NOIR BARBER.
+                    Vi ses i stolen.
+                </p>
+
+                <a href="mailto:kontakt@noirbarber.se" class="button button-primary">
+                    Boka tid
+                </a>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <footer>
+
+        <div class="container footer-inner">
+
+            <div>
+                © 2026 NOIR BARBER
+            </div>
+
+            <div>
+                Demo — North Digital Studio
+            </div>
+
+        </div>
+
+    </footer>
+
+</body>
+</html>

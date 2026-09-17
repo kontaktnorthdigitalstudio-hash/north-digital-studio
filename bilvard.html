@@ -1,0 +1,825 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>APEX DETAILING — Premium Car Care</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: #090a0b;
+            color: #f2f3f3;
+            font-family: "DM Sans", sans-serif;
+            line-height: 1.6;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        .container {
+            width: min(1180px, 90%);
+            margin: auto;
+        }
+
+        /* NAVIGATION */
+
+        nav {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 28px 0;
+            z-index: 10;
+        }
+
+        .nav-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            font-family: "Manrope", sans-serif;
+            font-size: 1.15rem;
+            font-weight: 800;
+            letter-spacing: -0.04em;
+        }
+
+        .logo span {
+            color: #8ea7ff;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 32px;
+            font-size: 0.85rem;
+            color: #92959a;
+        }
+
+        .nav-links a:hover {
+            color: white;
+        }
+
+        .nav-button {
+            border: 1px solid #6678b5;
+            padding: 11px 20px;
+            border-radius: 5px;
+            font-size: 0.82rem;
+            color: #dce2ff;
+        }
+
+        /* HERO */
+
+        .hero {
+            min-height: 780px;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    rgba(9,10,11,1) 0%,
+                    rgba(9,10,11,0.95) 38%,
+                    rgba(9,10,11,0.3) 100%
+                ),
+                radial-gradient(
+                    circle at 78% 50%,
+                    #33415e 0%,
+                    #1d2638 23%,
+                    #090a0b 65%
+                );
+        }
+
+        .hero::after {
+            content: "";
+            position: absolute;
+            right: 8%;
+            top: 18%;
+            width: 430px;
+            height: 430px;
+            border-radius: 50%;
+            border: 1px solid rgba(142,167,255,0.2);
+            box-shadow:
+                0 0 100px rgba(86,115,190,0.08);
+        }
+
+        .hero-content {
+            max-width: 760px;
+            padding-top: 70px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .eyebrow {
+            color: #8ea7ff;
+            text-transform: uppercase;
+            letter-spacing: 0.25em;
+            font-size: 0.7rem;
+            margin-bottom: 22px;
+            font-weight: 600;
+        }
+
+        h1 {
+            font-family: "Manrope", sans-serif;
+            font-size: clamp(3.7rem, 8vw, 7.4rem);
+            line-height: 0.88;
+            letter-spacing: -0.075em;
+            font-weight: 800;
+        }
+
+        h1 span {
+            color: #8ea7ff;
+        }
+
+        .hero-text {
+            max-width: 560px;
+            color: #9a9da2;
+            margin-top: 30px;
+            font-size: 1.02rem;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 14px;
+            margin-top: 35px;
+        }
+
+        .button {
+            padding: 15px 25px;
+            border-radius: 5px;
+            font-size: 0.88rem;
+            font-weight: 700;
+        }
+
+        .button-primary {
+            background: #8ea7ff;
+            color: #0a0b0d;
+        }
+
+        .button-secondary {
+            border: 1px solid #3b3e45;
+            color: #dddfe5;
+        }
+
+        /* STATS */
+
+        .stats {
+            border-top: 1px solid #23252a;
+            border-bottom: 1px solid #23252a;
+            background: #0e0f11;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+        }
+
+        .stat {
+            padding: 35px;
+            border-right: 1px solid #23252a;
+        }
+
+        .stat:last-child {
+            border-right: none;
+        }
+
+        .stat-number {
+            font-family: "Manrope", sans-serif;
+            font-size: 2.2rem;
+            font-weight: 800;
+        }
+
+        .stat-label {
+            color: #73767c;
+            font-size: 0.8rem;
+            margin-top: 4px;
+        }
+
+        /* SECTIONS */
+
+        .section {
+            padding: 110px 0;
+        }
+
+        .section-header {
+            margin-bottom: 50px;
+        }
+
+        .section-number {
+            color: #8ea7ff;
+            font-size: 0.7rem;
+            letter-spacing: 0.2em;
+            margin-bottom: 10px;
+        }
+
+        .section-title {
+            font-family: "Manrope", sans-serif;
+            font-size: clamp(2.5rem, 5vw, 4.2rem);
+            line-height: 1;
+            letter-spacing: -0.05em;
+            font-weight: 800;
+        }
+
+        /* SERVICES */
+
+        .services {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2px;
+            background: #292c31;
+        }
+
+        .service {
+            background: #111214;
+            padding: 38px;
+            min-height: 280px;
+        }
+
+        .service-number {
+            color: #55585e;
+            font-size: 0.75rem;
+            margin-bottom: 45px;
+        }
+
+        .service h3 {
+            font-family: "Manrope", sans-serif;
+            font-size: 1.4rem;
+            margin-bottom: 12px;
+        }
+
+        .service p {
+            color: #85888e;
+            font-size: 0.88rem;
+        }
+
+        .service-price {
+            color: #8ea7ff;
+            font-size: 0.9rem;
+            font-weight: 700;
+            margin-top: 25px;
+        }
+
+        /* SHOWCASE */
+
+        .showcase {
+            display: grid;
+            grid-template-columns: 1.35fr 1fr;
+            gap: 2px;
+            background: #292c31;
+        }
+
+        .showcase-main,
+        .showcase-small {
+            position: relative;
+            overflow: hidden;
+            min-height: 500px;
+            background:
+                linear-gradient(
+                    145deg,
+                    #3d4d6c,
+                    #1c2432 48%,
+                    #0c0d0f
+                );
+        }
+
+        .showcase-small {
+            min-height: 500px;
+            background:
+                linear-gradient(
+                    145deg,
+                    #30343b,
+                    #16181c 55%,
+                    #0b0c0e
+                );
+        }
+
+        .showcase-main::before {
+            content: "DETAIL";
+            position: absolute;
+            top: 35px;
+            left: 35px;
+            font-family: "Manrope", sans-serif;
+            font-size: 5rem;
+            font-weight: 800;
+            color: rgba(255,255,255,0.06);
+        }
+
+        .showcase-small::before {
+            content: "APEX";
+            position: absolute;
+            top: 35px;
+            left: 35px;
+            font-family: "Manrope", sans-serif;
+            font-size: 4rem;
+            font-weight: 800;
+            color: rgba(255,255,255,0.06);
+        }
+
+        .showcase-content {
+            position: absolute;
+            bottom: 30px;
+            left: 30px;
+            right: 30px;
+        }
+
+        .showcase-tag {
+            color: #8ea7ff;
+            font-size: 0.68rem;
+            letter-spacing: 0.18em;
+        }
+
+        .showcase-content h3 {
+            font-family: "Manrope", sans-serif;
+            font-size: 1.8rem;
+            margin-top: 5px;
+        }
+
+        /* ABOUT */
+
+        .about {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+        }
+
+        .about-image {
+            min-height: 560px;
+            background:
+                radial-gradient(
+                    circle at 50% 40%,
+                    #3b465c,
+                    #1b2029 45%,
+                    #0b0c0e
+                );
+            position: relative;
+        }
+
+        .about-image::after {
+            content: "APEX";
+            position: absolute;
+            bottom: 25px;
+            left: 30px;
+            font-family: "Manrope", sans-serif;
+            font-size: 4rem;
+            font-weight: 800;
+            color: rgba(255,255,255,0.07);
+        }
+
+        .about-text p {
+            color: #85888e;
+            margin-top: 24px;
+        }
+
+        /* CTA */
+
+        .cta {
+            background:
+                linear-gradient(
+                    135deg,
+                    #182035,
+                    #0e1118
+                );
+            padding: 85px 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 40px;
+            border: 1px solid #252c3c;
+        }
+
+        .cta h2 {
+            font-family: "Manrope", sans-serif;
+            font-size: clamp(2.3rem, 4vw, 4rem);
+            line-height: 1;
+            letter-spacing: -0.05em;
+            font-weight: 800;
+        }
+
+        .cta p {
+            color: #8c919b;
+            max-width: 550px;
+            margin-top: 14px;
+        }
+
+        /* FOOTER */
+
+        footer {
+            border-top: 1px solid #23252a;
+            padding: 35px 0;
+            color: #686b71;
+            font-size: 0.78rem;
+        }
+
+        .footer-inner {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        /* MOBILE */
+
+        @media (max-width: 800px) {
+
+            .nav-links {
+                display: none;
+            }
+
+            .hero {
+                min-height: 700px;
+            }
+
+            .stats-grid,
+            .services,
+            .showcase,
+            .about {
+                grid-template-columns: 1fr;
+            }
+
+            .stat {
+                border-right: none;
+                border-bottom: 1px solid #23252a;
+            }
+
+            .showcase-main,
+            .showcase-small {
+                min-height: 360px;
+            }
+
+            .about-image {
+                min-height: 400px;
+            }
+
+            .cta {
+                padding: 55px 30px;
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .footer-inner {
+                flex-direction: column;
+                gap: 10px;
+            }
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <!-- NAVIGATION -->
+
+    <nav>
+        <div class="container nav-inner">
+
+            <a href="index.html" class="logo">
+                APEX<span>.</span>
+            </a>
+
+            <div class="nav-links">
+                <a href="#services">Tjänster</a>
+                <a href="#results">Resultat</a>
+                <a href="#about">Om oss</a>
+                <a href="#contact">Kontakt</a>
+            </div>
+
+            <a href="#contact" class="nav-button">
+                Boka behandling
+            </a>
+
+        </div>
+    </nav>
+
+
+    <!-- HERO -->
+
+    <section class="hero">
+
+        <div class="container">
+
+            <div class="hero-content">
+
+                <div class="eyebrow">
+                    Premium Car Detailing
+                </div>
+
+                <h1>
+                    Your car.<br>
+                    <span>Perfected.</span>
+                </h1>
+
+                <p class="hero-text">
+                    Professionell bilvård och detailing för dig som
+                    vill att bilen ska se ut, kännas och upplevas
+                    som bäst.
+                </p>
+
+                <div class="hero-buttons">
+
+                    <a href="#contact" class="button button-primary">
+                        Boka behandling
+                    </a>
+
+                    <a href="#services" class="button button-secondary">
+                        Våra tjänster
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- STATS -->
+
+    <section class="stats">
+
+        <div class="container stats-grid">
+
+            <div class="stat">
+                <div class="stat-number">500+</div>
+                <div class="stat-label">Behandlade bilar</div>
+            </div>
+
+            <div class="stat">
+                <div class="stat-number">8+</div>
+                <div class="stat-label">År av erfarenhet</div>
+            </div>
+
+            <div class="stat">
+                <div class="stat-number">100%</div>
+                <div class="stat-label">Fokus på finish</div>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- SERVICES -->
+
+    <section class="section" id="services">
+
+        <div class="container">
+
+            <div class="section-header">
+
+                <div class="section-number">
+                    01 — TJÄNSTER
+                </div>
+
+                <h2 class="section-title">
+                    Detaljer gör skillnaden.
+                </h2>
+
+            </div>
+
+
+            <div class="services">
+
+                <div class="service">
+
+                    <div class="service-number">
+                        01
+                    </div>
+
+                    <h3>Premium Wash</h3>
+
+                    <p>
+                        Noggrann handtvätt, fälgrengöring,
+                        torkning och finish.
+                    </p>
+
+                    <div class="service-price">
+                        FRÅN 595 KR
+                    </div>
+
+                </div>
+
+
+                <div class="service">
+
+                    <div class="service-number">
+                        02
+                    </div>
+
+                    <h3>Interior Detail</h3>
+
+                    <p>
+                        Komplett invändig rengöring med
+                        fokus på varje detalj.
+                    </p>
+
+                    <div class="service-price">
+                        FRÅN 1 295 KR
+                    </div>
+
+                </div>
+
+
+                <div class="service">
+
+                    <div class="service-number">
+                        03
+                    </div>
+
+                    <h3>Full Detail</h3>
+
+                    <p>
+                        Invändig och utvändig premiumbehandling
+                        för en komplett finish.
+                    </p>
+
+                    <div class="service-price">
+                        FRÅN 2 495 KR
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- RESULTS -->
+
+    <section class="section" id="results">
+
+        <div class="container">
+
+            <div class="section-header">
+
+                <div class="section-number">
+                    02 — RESULTAT
+                </div>
+
+                <h2 class="section-title">
+                    Före. Efter. Wow.
+                </h2>
+
+            </div>
+
+
+            <div class="showcase">
+
+                <div class="showcase-main">
+
+                    <div class="showcase-content">
+
+                        <div class="showcase-tag">
+                            EXTERIOR DETAIL
+                        </div>
+
+                        <h3>
+                            Djup glans.
+                        </h3>
+
+                    </div>
+
+                </div>
+
+
+                <div class="showcase-small">
+
+                    <div class="showcase-content">
+
+                        <div class="showcase-tag">
+                            INTERIOR DETAIL
+                        </div>
+
+                        <h3>
+                            Ren känsla.
+                        </h3>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ABOUT -->
+
+    <section class="section" id="about">
+
+        <div class="container about">
+
+            <div class="about-image"></div>
+
+            <div class="about-text">
+
+                <div class="section-number">
+                    03 — OM APEX
+                </div>
+
+                <h2 class="section-title">
+                    Vi bryr oss
+                    <br>
+                    om detaljerna.
+                </h2>
+
+                <p>
+                    APEX DETAILING grundades med en enkel idé:
+                    bilvård ska handla om mer än att bara göra bilen ren.
+                </p>
+
+                <p>
+                    Vi arbetar metodiskt med varje bil och anpassar
+                    behandlingen efter bilens skick, material och behov.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- CONTACT -->
+
+    <section class="section" id="contact">
+
+        <div class="container">
+
+            <div class="cta">
+
+                <div>
+
+                    <div class="section-number">
+                        NÄSTA STEG
+                    </div>
+
+                    <h2>
+                        Ge bilen<br>
+                        den finish den förtjänar.
+                    </h2>
+
+                    <p>
+                        Kontakta oss för bokning eller en
+                        kostnadsfri rekommendation.
+                    </p>
+
+                </div>
+
+                <a
+                    href="mailto:boka@apexdetailing.se"
+                    class="button button-primary"
+                >
+                    Boka behandling
+                </a>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- FOOTER -->
+
+    <footer>
+
+        <div class="container footer-inner">
+
+            <div>
+                © 2026 APEX DETAILING
+            </div>
+
+            <div>
+                Demo — North Digital Studio
+            </div>
+
+        </div>
+
+    </footer>
+
+</body>
+</html>
